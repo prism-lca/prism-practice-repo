@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "lca": { "url": "https://lca.mathplosion.com/mcp" },
+    "dolt": {
+      "url": "https://bus-mgmt-databases.mcp.mathplosion.com/mcp-dolt-database/sse",
+      "transport": "sse"
+    }
+  }
+}
