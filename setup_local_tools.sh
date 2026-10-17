@@ -100,7 +100,8 @@ elif python3 -c 'import matplotlib, pandas, pptx' 2>/dev/null; then
 elif $check_only; then
   need "matplotlib, pandas or python-pptx (pip install --user)"
 else
-  python3 -m pip install --user --break-system-packages -q matplotlib pandas python-pptx \
+  python3 -m pip install --user --break-system-packages -q --no-warn-script-location \
+      matplotlib pandas python-pptx \
     && say "installed matplotlib, pandas, python-pptx"
 fi
 
