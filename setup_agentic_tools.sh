@@ -35,14 +35,19 @@ say() { printf '  %s\n' "$*"; }
 # --- CLIs -------------------------------------------------------------------
 if $install_clis; then
   echo "CLIs"
+  # One npm install for all missing CLIs: npm fetches them in parallel.
+  missing_cmds=() missing_pkgs=()
   for pair in claude:@anthropic-ai/claude-code codex:@openai/codex opencode:opencode-ai; do
     cmd="${pair%%:*}" pkg="${pair#*:}"
     if command -v "$cmd" >/dev/null; then
       say "$cmd already installed"
     else
-      npm install -g "$pkg" >/dev/null && say "$cmd installed"
+      missing_cmds+=("$cmd") missing_pkgs+=("$pkg")
     fi
   done
+  if [ ${#missing_pkgs[@]} -gt 0 ]; then
+    npm install -g "${missing_pkgs[@]}" >/dev/null && say "installed ${missing_cmds[*]}"
+  fi
 fi
 
 # --- Python, charting and slide tooling -------------------------------------

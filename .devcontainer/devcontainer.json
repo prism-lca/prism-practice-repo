@@ -5,6 +5,6 @@
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "postCreateCommand": "bash setup_agentic_tools.sh --install-clis",
+  "onCreateCommand": "bash setup_agentic_tools.sh --install-clis",
   "postStartCommand": "bash setup_agentic_tools.sh"
 }
