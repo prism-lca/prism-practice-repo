@@ -32,9 +32,16 @@ Using issue #23 as the example:
    on how it was tested. Ask the person how they tested it rather than
    guessing.
 6. **Review.** Requested changes become more commits on the same branch.
-   Update the Commits and Files changed sections again after them. After the
-   merge, the plan stays in `plans/` as the record of why the change was made
-   and which commits made it.
+   Update the Commits and Files changed sections again after them. Use the
+   branch only for changes to this pull request; new work gets its own branch.
+   After the merge, the plan stays in `plans/` as the record of why the change
+   was made and which commits made it.
+7. **Clean up.** After the merge, GitHub deletes the branch on GitHub. Delete
+   the local copy too: switch to `main`, pull, and run
+   `git branch -d issue-23-branch`. If git refuses because the pull request was
+   squashed or rebased, check on GitHub that it shows as merged before using
+   `git branch -D issue-23-branch`. Never delete a branch whose pull request
+   is still open.
 
 ### Plan template
 
