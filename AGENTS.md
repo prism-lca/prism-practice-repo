@@ -11,14 +11,14 @@ you to commit or push a specific change directly to `main`.
 Using issue #23 as the example:
 
 1. **Branch.** Work on `issue-23-branch`. Create it from an up-to-date `main`
-   if it doesn't exist. If the work started on an experiment branch, rename
-   that branch to `issue-23-branch` instead of starting over.
+   if it doesn't exist. If the work started on an experiment branch with no
+   issue, see "Starting from an experiment" below.
 2. **Plan before the fix.** Read the issue and the relevant code, then draft
    `plans/issue-23-plan.md` from the template below. Don't change any code in
    this step. Show the plan to the person you're working with so they can edit
    it. Commit and push it only once they approve, before any more code
-   changes. On a fresh branch it is the first commit; on a renamed experiment
-   branch it comes after the experiment's commits.
+   changes. On a fresh branch it is the first commit; on an experiment branch
+   it comes after the experiment's commits.
 3. **Fix.** Implement the plan in small commits, pushing as you go. Start each
    commit message with the issue number, e.g. `#23: close open menu on window
    resize`. When you're done, tell the person to test each acceptance criterion
@@ -44,6 +44,28 @@ Using issue #23 as the example:
    squashed or rebased, check on GitHub that it shows as merged before using
    `git branch -D issue-23-branch`. Never delete a branch whose pull request
    is still open.
+
+### Starting from an experiment
+
+Anyone can experiment on a branch without an issue. When they want to keep the
+work, you create the issue for them from the plan:
+
+1. **Draft the plan.** Read the experiment's changes and draft a plan from the
+   template, leaving the issue number blank. Write the goal and acceptance
+   criteria with the person, since there is no issue to copy them from. Show
+   it to them and wait for their approval.
+2. **Create the issue.** Once they approve, create an issue whose title is the
+   experiment branch's name and whose description is the plan's Goal and
+   Acceptance criteria. Use the same name as the issue title in the plan's
+   heading. Assign it to the person and check that it is on the project
+   board. Tell them the issue number.
+3. **Commit the plan.** Fill in the issue number, put the experiment branch's
+   name on the plan's Branch line, and save the plan under the branch's name,
+   e.g. `plans/dark-mode-plan.md` for a branch called `dark-mode`. Commit and
+   push it on the experiment branch. Keep the branch's name.
+4. **Carry on** from step 3 (Fix) above, using the experiment branch and its
+   plan wherever the steps say `issue-23-branch` and `plans/issue-23-plan.md`.
+   The pull request still says `Fixes #23`, which links it to the issue.
 
 ### Plan template
 
