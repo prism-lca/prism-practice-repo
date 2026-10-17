@@ -70,10 +70,7 @@ with a pull request; only a code owner can merge one directly.
 
 When you want to keep some of the work:
 
-```mermaid
-flowchart LR
-    A["Experimental<br/>Branch"] --> B["Write<br/>Issue"] --> C["Create<br/>Issue Branch<br/>From<br/>Experimental<br/>Branch"] --> D["Plan, Fix,<br/>Test, PR<br/>as above"]
-```
+![Experimental branch, write issue, create issue branch from experimental branch, then plan, fix, test and PR as above](images/experiment-flow.svg)
 
 1. **Write an issue** for it, say #40, as for any other change.
 2. **The agent copies the branch.** It brings `dark-mode` up to date with

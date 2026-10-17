@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="120" viewBox="0 0 800 120" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect width="800" height="120" fill="#ffffff"/>
+
+  <g stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <line x1="180" y1="60" x2="218" y2="60"/>
+    <line x1="380" y1="60" x2="418" y2="60"/>
+    <line x1="580" y1="60" x2="618" y2="60"/>
+  </g>
+
+  <g stroke-width="1.5">
+    <rect x="20" y="20" width="160" height="80" rx="8" fill="#fdf0dc" stroke="#c08a2e"/>
+    <rect x="220" y="20" width="160" height="80" rx="8" fill="#fdf0dc" stroke="#c08a2e"/>
+    <rect x="420" y="20" width="160" height="80" rx="8" fill="#e8eef7" stroke="#4a6fa5"/>
+    <rect x="620" y="20" width="160" height="80" rx="8" fill="#e8eef7" stroke="#4a6fa5"/>
+  </g>
+
+  <g fill="#222" text-anchor="middle">
+    <text x="100" y="56">Experimental</text>
+    <text x="100" y="76">Branch</text>
+    <text x="300" y="56">Write</text>
+    <text x="300" y="76">Issue</text>
+    <text x="500" y="47">Create Issue Branch</text>
+    <text x="500" y="66">From Experimental</text>
+    <text x="500" y="85">Branch</text>
+    <text x="700" y="56">Plan, Fix, Test, PR</text>
+    <text x="700" y="76">as above</text>
+  </g>
+</svg>

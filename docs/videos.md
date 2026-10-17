@@ -12,10 +12,7 @@ tab while recording.
 
 ### Experimenting, then keeping it
 
-```mermaid
-flowchart LR
-    A["Experimental<br/>Branch"] --> B["Write<br/>Issue"] --> C["Create<br/>Issue Branch<br/>From<br/>Experimental<br/>Branch"] --> D["Plan, Fix,<br/>Test, PR<br/>as above"]
-```
+![Experimental branch, write issue, create issue branch from experimental branch, then plan, fix, test and PR as above](images/experiment-flow.svg)
 
 The experiment branch is kept, so you can carry on experimenting afterwards.
 
