@@ -2,8 +2,8 @@
 
 ## Working on an issue: branch, plan, fix
 
-Every issue is fixed on its own branch, and the branch's first commit is a
-plan. Elena or Calvin assign issues, review pull requests and merge them.
+Every issue is fixed on its own branch, with an approved plan committed before
+the fix. Elena or Calvin assign issues, review pull requests and merge them.
 Don't commit or push to `main`, and don't merge a pull request, unless a code
 owner (a member of `@prism-lca/maintainers`, see `.github/CODEOWNERS`) asks
 you to commit or push a specific change directly to `main`.
@@ -11,12 +11,14 @@ you to commit or push a specific change directly to `main`.
 Using issue #23 as the example:
 
 1. **Branch.** Work on `issue-23-branch`. Create it from an up-to-date `main`
-   if it doesn't exist.
-2. **Plan first, no code.** Read the issue and the relevant code, then draft
+   if it doesn't exist. If the work started on an experiment branch, rename
+   that branch to `issue-23-branch` instead of starting over.
+2. **Plan before the fix.** Read the issue and the relevant code, then draft
    `plans/issue-23-plan.md` from the template below. Don't change any code in
    this step. Show the plan to the person you're working with so they can edit
-   it. Commit and push it only once they approve. It is the branch's first
-   commit.
+   it. Commit and push it only once they approve, before any more code
+   changes. On a fresh branch it is the first commit; on a renamed experiment
+   branch it comes after the experiment's commits.
 3. **Fix.** Implement the plan in small commits, pushing as you go. Start each
    commit message with the issue number, e.g. `#23: close open menu on window
    resize`. When you're done, tell the person to test each acceptance criterion
