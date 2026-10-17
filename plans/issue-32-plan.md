@@ -12,19 +12,13 @@ to finish.
 
 ## What will change
 We will add one new file, `docs/calvin.md`, and leave everything else as it is.
-The page will have:
-- the title "Calvin"
-- a sentence saying it was made as a practice run of the branch, plan and fix
-  workflow for issue #32
-- a short list of the workflow steps (branch, plan, fix, record commits, pull
-  request, review), with a link back to `AGENTS.md`
+The page will contain one line: "Hello from Calvinw".
 
 ## Testing steps
 1. On GitHub, switch to the branch `issue-32-branch` (or open the pull request
    and go to "Files changed").
 2. Open the `docs` folder and check that `calvin.md` is there.
-3. Open `calvin.md` and check that it shows the title and the text described
-   above.
+3. Open `calvin.md` and check that it says "Hello from Calvinw".
 
 ## Commits
 (filled in when the fix is done)
