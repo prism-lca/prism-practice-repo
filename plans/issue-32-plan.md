@@ -21,7 +21,11 @@ The page will contain one line: "Hello from Calvinw".
 3. Open `calvin.md` and check that it says "Hello from Calvinw".
 
 ## Commits
-(filled in when the fix is done)
+- a153bdc #32: replace docs/calvin.md content with Hello from Calvinw
+- 0ac2610 #32: change plan so docs/calvin.md just says Hello from Calvinw
+- 14e83a5 #32: add docs/calvin.md
+- d8c1e0f #32: add plan for docs/calvin.md
 
 ## Files changed
-(filled in when the fix is done)
+- docs/calvin.md
+- plans/issue-32-plan.md
