@@ -7,8 +7,8 @@ issue for trying out the branch, plan and fix workflow in `AGENTS.md` from start
 to finish.
 
 ## Acceptance criteria
-- [ ] The file `docs/calvin.md` exists.
-- [ ] It has some readable content (it is not empty).
+- [x] The file `docs/calvin.md` exists.
+- [x] It has some readable content (it is not empty).
 
 ## What will change
 We will add one new file, `docs/calvin.md`, and leave everything else as it is.
