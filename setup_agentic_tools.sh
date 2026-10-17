@@ -12,7 +12,8 @@
 # Safe to run any number of times: each run rebuilds the same result.
 #
 # Usage: ./setup_agentic_tools.sh [--install-clis]
-#   --install-clis  npm-install any of the three CLIs that are missing
+#   --install-clis  npm-install any of the three CLIs that are missing, and
+#                   install the Python, matplotlib and slide tools
 #                   (the devcontainer passes this; local runs usually don't)
 
 set -euo pipefail
@@ -24,7 +25,7 @@ install_clis=false
 for arg in "$@"; do
   case "$arg" in
     --install-clis) install_clis=true ;;
-    -h|--help) sed -n '2,15p' "$0"; exit 0 ;;
+    -h|--help) sed -n '2,16p' "$0"; exit 0 ;;
     *) echo "unknown option: $arg" >&2; exit 2 ;;
   esac
 done
@@ -42,6 +43,32 @@ if $install_clis; then
       npm install -g "$pkg" >/dev/null && say "$cmd installed"
     fi
   done
+fi
+
+# --- Python, charting and slide tooling -------------------------------------
+# The system Python is externally managed (PEP 668), so packages come from apt;
+# python-pptx has no Ubuntu package and goes into ~/.local with pip instead.
+# LibreOffice renders decks to PDF and poppler splits them into PNGs, so agents
+# can check slides visually; Liberation fonts match Arial metrics.
+if $install_clis; then
+  echo "Python tools"
+  apt_pkgs=(python3-pip python3-matplotlib python3-pandas libreoffice-impress poppler-utils fonts-liberation)
+  missing=()
+  for p in "${apt_pkgs[@]}"; do
+    dpkg -s "$p" >/dev/null 2>&1 || missing+=("$p")
+  done
+  if [ ${#missing[@]} -eq 0 ]; then
+    say "apt packages already installed"
+  else
+    sudo apt-get update -qq >/dev/null
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends "${missing[@]}" >/dev/null
+    say "installed ${missing[*]}"
+  fi
+  if python3 -c 'import pptx' 2>/dev/null; then
+    say "python-pptx already installed"
+  else
+    python3 -m pip install --user --break-system-packages -q python-pptx && say "python-pptx installed"
+  fi
 fi
 
 if ! command -v node >/dev/null; then
