@@ -1,10 +1,5 @@
 {
   "name": "PRISM practice",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
-  },
-  "onCreateCommand": "bash setup_agentic_tools.sh --install-clis",
-  "postStartCommand": "bash setup_agentic_tools.sh"
+  "image": "ghcr.io/prism-lca/prism-devcontainer:latest",
+  "postStartCommand": "bash setup_agent_config.sh"
 }
