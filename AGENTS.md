@@ -4,7 +4,9 @@
 
 Every issue is fixed on its own branch, and the branch's first commit is a
 plan. Elena or Calvin assign issues, review pull requests and merge them.
-Never commit or push to `main`, and never merge a pull request.
+Don't commit or push to `main`, and don't merge a pull request, unless a code
+owner (a member of `@prism-lca/maintainers`, see `.github/CODEOWNERS`) asks
+you to commit or push a specific change directly to `main`.
 
 Using issue #23 as the example:
 
