@@ -25,20 +25,15 @@ Using issue #23 as the example:
    by hand: run the app or the calculation and check it themselves.
    - If the plan turns out to be wrong, commit the change to the plan first,
      then the code. The plan must always describe what was actually built.
-4. **Record the commits.** When the fix is done, fill in the plan's Commits
-   section with the branch's commits (`git log --oneline main..HEAD`), and
-   Files changed with the files the fix touched
-   (`git diff --name-only main...HEAD`). Commit and push the updated plan.
-5. **Pull request.** Open a PR from `issue-23-branch` into `main`. The
+4. **Pull request.** Open a PR from `issue-23-branch` into `main`. The
    description must include `Fixes #23`, a link to the plan, and a short note
    on how it was tested. Ask the person how they tested it rather than
    guessing.
-6. **Review.** Requested changes become more commits on the same branch.
-   Update the Commits and Files changed sections again after them. Use the
-   branch only for changes to this pull request; new work gets its own branch.
-   After the merge, the plan stays in `plans/` as the record of why the change
-   was made and which commits made it.
-7. **Clean up.** After the merge, GitHub deletes the branch on GitHub. Delete
+5. **Review.** Requested changes become more commits on the same branch. Use
+   the branch only for changes to this pull request; new work gets its own
+   branch. After the merge, the plan stays in `plans/` as the record of why the
+   change was made; the pull request shows which commits made it.
+6. **Clean up.** After the merge, GitHub deletes the branch on GitHub. Delete
    the local copy too: switch to `main`, pull, and run
    `git branch -d issue-23-branch`. If git refuses because the pull request was
    squashed or rebased, check on GitHub that it shows as merged before using
@@ -82,12 +77,6 @@ Branch: issue-23-branch · Owner: …
 
 ## Testing steps
 (numbered steps a person follows by hand to check each acceptance criterion)
-
-## Commits
-(filled in when the fix is done)
-
-## Files changed
-(filled in when the fix is done)
 ```
 
 Write the plan in plain language: the owner and reviewers may not be
