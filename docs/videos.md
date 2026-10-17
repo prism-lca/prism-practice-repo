@@ -8,10 +8,7 @@ tab while recording.
 
 ### Fixing an issue
 
-```mermaid
-flowchart LR
-    A["Agent<br/>Gets<br/>Issue"] --> B["Agent<br/>Creates<br/>Branch"] --> C["Agent<br/>Writes<br/>plan.md"] --> D["Agent<br/>Fixes<br/>and Tests"] --> E["Human<br/>Tests<br/>Fix"] --> F["Agent<br/>Creates<br/>Pull Request"]
-```
+![Agent gets issue, creates branch, writes plan.md; then agent fixes and tests, human tests fix, agent creates pull request](images/issue-flow.svg)
 
 ### Experimenting, then keeping it
 
