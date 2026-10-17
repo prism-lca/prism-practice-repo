@@ -10,9 +10,11 @@ you to commit or push a specific change directly to `main`.
 
 Using issue #23 as the example:
 
-1. **Branch.** Work on `issue-23-branch`. Create it from an up-to-date `main`
-   if it doesn't exist. If the work started on an experiment branch, see
-   "Starting from an experiment" below.
+1. **Branch.** When you pick up an issue, show the person its title and
+   description and ask whether to start. Once they say yes, tell them you're
+   creating `issue-23-branch` and why (each issue gets its own branch), then
+   create it from an up-to-date `main` if it doesn't exist. If the work
+   started on an experiment branch, see "Starting from an experiment" below.
 2. **Plan before the fix.** Read the issue and the relevant code, then draft
    `plans/issue-23-plan.md` from the template below. Don't change any code in
    this step. Show the plan to the person you're working with so they can edit
