@@ -6,8 +6,8 @@ Add a new file, `docs/faith.md`, to the `docs/` folder. It should say
 "hello from faith", exactly as the issue asks.
 
 ## Acceptance criteria
-- [ ] There is a file called `docs/faith.md`.
-- [ ] The text inside it is "hello from faith".
+- [x] There is a file called `docs/faith.md`.
+- [x] The text inside it is "hello from faith".
 
 ## What will change
 We will add one new file, `docs/faith.md`, and leave everything else as it is.
