@@ -6,8 +6,8 @@ Add a new file, `docs/vanyaa.md`, to the `docs/` folder. It should say
 "hello from vanyaa", exactly as the issue asks.
 
 ## Acceptance criteria
-- [ ] There is a file called `docs/vanyaa.md`.
-- [ ] The text inside it is "hello from vanyaa".
+- [x] There is a file called `docs/vanyaa.md`.
+- [x] The text inside it is "hello from vanyaa".
 
 ## What will change
 We will add one new file, `docs/vanyaa.md`, and leave everything else as it is.
