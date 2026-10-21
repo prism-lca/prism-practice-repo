@@ -5,8 +5,8 @@ Branch: issue-28-branch · Owner: Kezia
 Add Kezia's name to the list of team members in `README.md`, as the issue asks.
 
 ## Acceptance criteria
-- [ ] "Kezia Suteja" appears in the list of names in `README.md`.
-- [ ] Nothing else in the README has changed.
+- [x] "Kezia Suteja" appears in the list of names in `README.md`.
+- [x] Nothing else in the README has changed.
 
 ## What will change
 We add one line, `- Kezia Suteja`, to the end of the list of names near the
