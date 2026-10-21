@@ -5,3 +5,4 @@ opencode.json
 .claude/skills
 .claude/agents
 .opencode/agents
+.DS_Store

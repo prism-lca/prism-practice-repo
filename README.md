@@ -10,6 +10,7 @@ Hello from the PRISM team! 👋
 - emmahart219
 - Diana Lee
 - Elena
+- Kezia Suteja
 
 ## Working locally on a Mac
 
