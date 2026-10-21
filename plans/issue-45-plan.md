@@ -5,7 +5,7 @@ Branch: issue-45-branch · Owner: Kezia
 Add a short personal page for Kezia in the `docs` folder, as requested in the issue.
 
 ## Acceptance criteria
-- [ ] There is a file called docs/kezia.md and the text inside it is "hello from kezia"
+- [x] There is a file called docs/kezia.md and the text inside it is "hello from kezia"
 
 ## What will change
 A new file, `docs/kezia.md`, will be added. It will contain one line: hello from kezia.
