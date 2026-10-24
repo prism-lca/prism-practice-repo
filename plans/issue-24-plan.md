@@ -6,7 +6,7 @@ Add Alex's name to the team list in `README.md`, so the README shows everyone
 on the PRISM team.
 
 ## Acceptance criteria
-- [ ] `README.md` lists "Alex Christensen" in the team list near the top.
+- [x] `README.md` lists "Alex Christensen" in the team list near the top.
 - [ ] Nothing else in `README.md` has changed.
 
 ## What will change
