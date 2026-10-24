@@ -11,6 +11,7 @@ Hello from the PRISM team! 👋
 - Diana Lee
 - Elena
 - Kezia Suteja
+- Alex Christensen
 
 ## Working locally on a Mac
 
