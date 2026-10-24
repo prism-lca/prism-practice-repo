@@ -5,7 +5,7 @@ Branch: issue-38-branch · Owner: Diana (@dianalee3)
 Add Diana's greeting to the docs folder as requested in issue #38.
 
 ## Acceptance criteria
-- [ ] There is a file called docs/diana.md and the text inside it is "hello from diana"
+- [x] There is a file called docs/diana.md and the text inside it is "hello from diana"
 
 ## What will change
 Create docs/diana.md with one line: hello from diana.
