@@ -6,8 +6,8 @@ Add a new page, `docs/alexandra.md`, to the `docs/` folder. It should say
 "hello from alexandra", exactly as the issue asks.
 
 ## Acceptance criteria
-- [ ] There is a file called `docs/alexandra.md`.
-- [ ] The text inside it is "hello from alexandra".
+- [x] There is a file called `docs/alexandra.md`.
+- [x] The text inside it is "hello from alexandra".
 
 ## What will change
 We will add one new file, `docs/alexandra.md`, and leave everything else as it is.
