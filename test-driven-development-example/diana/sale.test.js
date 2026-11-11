@@ -9,3 +9,9 @@ test("Rule 1: 20% off $50 is $40.00", () => {
 test("Rule 2: 15% off $19.99 is $16.99, rounded to the nearest cent", () => {
   assert.strictEqual(salePrice(19.99, 15).salePrice, 16.99);
 });
+
+test("Rule 3: a discount over 100% says \"A discount can't be more than 100%\"", () => {
+  const result = salePrice(50, 120);
+  assert.strictEqual(result.error, "A discount can't be more than 100%");
+  assert.strictEqual(result.salePrice, undefined);
+});
