@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sale Price Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f7f5;
+      --surface: #ffffff;
+      --fg: #1b2420;
+      --muted: #5a6661;
+      --line: #d9dfdb;
+      --accent: #1f5f73;
+      --red: #b3261e;
+      --green: #1d7a46;
+      --code-bg: #eef1ef;
+      --tag: #c2410c;
+      --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141917; --surface: #1c2320; --fg: #e5ebe8; --muted: #9aa8a2; --line: #2e3833;
+        --accent: #7cc3d6; --red: #f08a82; --green: #6fcf97; --code-bg: #232b28; --tag: #fb923c;
+        color-scheme: dark;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: var(--font-body); font-size: 16.5px; line-height: 1.6;
+      padding: 48px 16px;
+    }
+    .card {
+      max-width: 800px; margin: 0 auto; background: var(--surface);
+      border: 1px solid var(--line); border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(20, 40, 35, 0.08);
+      padding: 24px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px; align-items: start;
+    }
+    h1 { grid-column: 1 / -1; margin: 0; font-family: var(--font-display); font-size: 1.6rem; line-height: 1.15; }
+    .fields { display: flex; flex-direction: column; gap: 14px; }
+    .field { display: flex; flex-direction: column; gap: 4px; }
+    .field label { font-weight: 600; font-size: 0.92rem; }
+    .input-wrap { display: flex; align-items: center; border: 1.5px solid var(--line); border-radius: 8px; background: var(--bg); }
+    .input-wrap:focus-within { border-color: var(--accent); }
+    .input-wrap span { padding: 0 10px; color: var(--muted); font-family: var(--font-mono); }
+    .input-wrap input {
+      flex: 1; min-width: 0; border: 0; background: transparent; color: var(--fg);
+      font: 500 1.05rem var(--font-mono); padding: 9px 4px; outline: none;
+    }
+    .receipt {
+      border: 1.5px dashed var(--line); border-radius: 10px; padding: 18px;
+      display: flex; flex-direction: column; gap: 8px; font-variant-numeric: tabular-nums;
+    }
+    .receipt .line { display: flex; justify-content: space-between; gap: 12px; font-size: 0.95rem; }
+    .receipt .line span:last-child { font-family: var(--font-mono); }
+    .receipt .total { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 4px; align-items: baseline; }
+    .receipt .total span:first-child { font-weight: 600; }
+    .receipt .total span:last-child { font-size: 1.9rem; font-weight: 500; color: var(--tag); }
+    .receipt .save { color: var(--green); font-size: 0.9rem; }
+    .receipt .hint { color: var(--muted); }
+    .receipt .err { color: var(--red); font-weight: 600; }
+    @media (max-width: 600px) { .card { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Sale Price Calculator</h1>
+    <div class="fields">
+      <div class="field">
+        <label for="price">Original price</label>
+        <div class="input-wrap"><span>$</span><input id="price" type="number" inputmode="decimal" min="0" step="0.01" placeholder="50.00"></div>
+      </div>
+      <div class="field">
+        <label for="discount">Discount</label>
+        <div class="input-wrap"><input id="discount" type="number" inputmode="decimal" min="0" step="1" placeholder="20"><span>%</span></div>
+      </div>
+    </div>
+    <div class="receipt" id="result" aria-live="polite"></div>
+  </main>
+
+  <script src="sale.js"></script>
+  <script>
+    const priceBox = document.getElementById("price");
+    const discountBox = document.getElementById("discount");
+    const result = document.getElementById("result");
+    const money = n => "$" + n.toFixed(2);
+
+    function showHint(message) {
+      result.innerHTML = '<div class="hint">' + message + "</div>";
+    }
+
+    function showError(message) {
+      result.innerHTML = '<div class="err">' + message + "</div>";
+    }
+
+    function update() {
+      const priceText = priceBox.value.trim();
+      const discountText = discountBox.value.trim();
+
+      if (priceText === "" && discountText === "") return showHint("Type a price and a discount.");
+      if (priceText === "") return showError("Please enter a price");
+      if (discountText === "") return showError("Please enter a discount");
+
+      const price = Number(priceText);
+      const discount = Number(discountText);
+      if (price < 0) return showError("A price can't be negative");
+      if (discount < 0) return showError("A discount can't be negative");
+
+      const answer = salePrice(price, discount);
+      if (answer.error) return showError(answer.error);
+
+      result.innerHTML =
+        '<div class="line"><span>Original price</span><span>' + money(price) + "</span></div>" +
+        '<div class="line"><span>Discount</span><span>' + discount + "% off</span></div>" +
+        '<div class="line total"><span>Sale price</span><span>' + money(answer.salePrice) + "</span></div>" +
+        '<div class="save">You save ' + money(price - answer.salePrice) + "</div>";
+    }
+
+    priceBox.addEventListener("input", update);
+    discountBox.addEventListener("input", update);
+    update();
+  </script>
+</body>
+</html>
