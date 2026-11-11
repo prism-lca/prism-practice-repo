@@ -121,7 +121,7 @@ Use the tools that are already installed (see `setup_local_tools.sh`). Don't
 add a test framework or a `package.json` unless the issue asks for one.
 
 - **Web pages (HTML and JavaScript).** Keep the calculation or logic in its
-  own `.js` file next to the page (e.g. `diana/sale.js`), so it
+  own `.js` file next to the page (e.g. `test-driven-development-example/diana/sale.js`), so it
   can be tested without a browser; `index.html` loads it with a `<script>`
   tag. End the `.js` file with
   `if (typeof module !== "undefined") module.exports = { salePrice };`
@@ -129,12 +129,12 @@ add a test framework or a `package.json` unless the issue asks for one.
   Put the tests beside it in a file ending `.test.js`, using Node's
   built-in test runner (`node:test` and `node:assert`), and run them with
   `node --test <folder>/*.test.js` (e.g.
-  `node --test diana/*.test.js`). The screen itself is checked by hand.
+  `node --test test-driven-development-example/diana/*.test.js`). The screen itself is checked by hand.
 - **Python.** Put tests in `tests/` and run them with `pytest`.
 
 Each project lives in its own folder, named in the issue. In practice
 projects, each student works only in their own folder, named after them
-(e.g. `diana/`, `calvin/`), and doesn't change anyone else's.
+(e.g. `test-driven-development-example/diana/`), and doesn't change anyone else's.
 
 ## Teams
 

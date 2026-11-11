@@ -10,9 +10,10 @@ in [AGENTS.md](../AGENTS.md).
 A one-page website that works out sale prices. You type in a price and a
 discount, and the page shows the sale price and how much you save.
 
-Everyone builds the same calculator in their own folder, named after them:
-`diana/`, `calvin/` and so on. Your page will be `<your-folder>/index.html`.
-Only change files in your own folder.
+Everyone builds the same calculator in their own folder, named after them,
+inside `test-driven-development-example/` (for example
+`test-driven-development-example/diana/`). Your page will be `index.html` in
+your folder. Only change files in your own folder.
 
 The page has two parts, and the agent writes both:
 
@@ -49,7 +50,8 @@ A test is that answer key, and the computer grades against it automatically.
    Sale Price Calculator test first") and say to your agent:
 
    > Let's work on my Sale Price Calculator issue, following AGENTS.md and
-   > docs/sale-price-calculator.md. Build it in my folder, diana/.
+   > docs/sale-price-calculator.md. Build it in my folder,
+   > test-driven-development-example/diana/.
 
 2. The agent shows you the issue, makes a branch, and writes a plan. It should
    ask you questions first, for example "Should $16.9915 round to the nearest
