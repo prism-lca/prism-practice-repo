@@ -5,8 +5,11 @@ Oct 17, 2026 · Calvin, Elena
 ## Branch, plan, and fixing issues
 
 Every issue is fixed on its own branch, named with the issue number:
-`issue-23-branch` for issue #23. An approved plan is committed before the fix.
-Then a pull request goes to Elena or Calvin, who review and merge it.
+`issue-23-branch` for issue #23. An approved plan is committed before the fix, and the fix is built test
+first: each acceptance criterion gets an automated test that is shown failing
+before the code that makes it pass. Then a pull request goes to Elena or
+Calvin, who review and merge it. For a worked example, see
+[the Sale Price Calculator practice project](sale-price-calculator.md).
 
 ### The steps
 
@@ -19,18 +22,26 @@ Then a pull request goes to Elena or Calvin, who review and merge it.
    and explains that each issue gets its own branch.
 3. **Plan.** The agent reads the issue and the code and drafts
    `plans/issue-23-plan.md` from the template below, without changing any
-   code. The owner reads the plan and edits it until they're happy, then
+   code. It writes each acceptance criterion as an example someone can check
+   yes or no, and asks about anything unclear. The owner reads the plan and edits it until they're happy, then
    approves it. The agent commits and pushes it.
-4. **Fix.** On the same branch, the agent makes the change in small commits,
-   each starting with the issue number (for example
-   `#23: close open menu on window resize`), and pushes as it goes. The owner
-   then tests each acceptance criterion by hand: they run the app or the
-   calculation and check it themselves.
+4. **Test, then fix.** On the same branch, the agent takes the acceptance
+   criteria one at a time:
+   - **Red:** it writes a test for the criterion, runs it, and shows the owner
+     that it fails (for example "expected 40, got 0").
+   - **Green:** it writes the smallest change that makes the test pass, and
+     runs all the tests again.
+
+   Each commit starts with the issue number (for example
+   `#23: close open menu on window resize`), and the agent pushes as it goes.
+   It never weakens or deletes a test to make it pass. When all the tests
+   pass, the owner tests each acceptance criterion by hand: they run the app
+   or the calculation and check it themselves.
    - If the plan turns out to be wrong, the plan is updated first, then the
      code. The plan always describes what was actually built.
 5. **Pull request.** The agent opens a PR from `issue-23-branch` into `main`.
-   The description includes `Fixes #23`, a link to the plan, and a short note
-   on how the owner tested it. The agent asks the owner how they tested it
+   The description includes `Fixes #23`, a link to the plan, the final test
+   results, and a short note on how the owner tested it by hand. The agent asks the owner how they tested it
    rather than guessing.
 6. **Review and merge.** Elena or Calvin review the PR against the plan. The
    PR's Commits and Files changed tabs show exactly what changed. Requested
@@ -100,6 +111,12 @@ Branch: issue-23-branch · Owner: …
 
 ## What will change
 (a short, plain-language summary anyone on the team can follow)
+
+## Tests
+(one automated test per acceptance criterion, in the same order, each
+named in plain words; each is shown failing before its code is written)
+1. …
+2. …
 
 ## Testing steps
 (numbered steps a person follows by hand to check each acceptance criterion)
