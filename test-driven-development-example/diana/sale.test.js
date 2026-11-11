@@ -15,3 +15,9 @@ test("Rule 3: a discount over 100% says \"A discount can't be more than 100%\"",
   assert.strictEqual(result.error, "A discount can't be more than 100%");
   assert.strictEqual(result.salePrice, undefined);
 });
+
+test("Rule 4: a discount of exactly 100% says \"A discount must be less than 100%\"", () => {
+  const result = salePrice(50, 100);
+  assert.strictEqual(result.error, "A discount must be less than 100%");
+  assert.strictEqual(result.salePrice, undefined);
+});
