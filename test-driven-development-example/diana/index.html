@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sale Price Calculator</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 26rem; margin: 2rem auto; padding: 0 1rem; color: #222; }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    input { width: 100%; box-sizing: border-box; padding: 0.5rem; font-size: 1.1rem; margin-top: 0.3rem; }
+    #result { margin-top: 1.5rem; padding: 1rem; border-radius: 6px; background: #f2f6f2; min-height: 3rem; }
+    #result.error { background: #fbeaea; color: #a32020; }
+    .price { font-size: 1.8rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Sale Price Calculator</h1>
+
+  <label for="price">Price ($)</label>
+  <input id="price" type="number" min="0" step="0.01" placeholder="50.00">
+
+  <label for="discount">Discount (%)</label>
+  <input id="discount" type="number" min="0" step="1" placeholder="20">
+
+  <div id="result" aria-live="polite">Type a price and a discount.</div>
+
+  <script src="sale.js"></script>
+  <script>
+    const priceBox = document.getElementById("price");
+    const discountBox = document.getElementById("discount");
+    const result = document.getElementById("result");
+
+    function showError(message) {
+      result.className = "error";
+      result.textContent = message;
+    }
+
+    function update() {
+      const priceText = priceBox.value.trim();
+      const discountText = discountBox.value.trim();
+
+      if (priceText === "") return showError("Please enter a price");
+      if (discountText === "") return showError("Please enter a discount");
+
+      const price = Number(priceText);
+      const discount = Number(discountText);
+      if (price < 0) return showError("A price can't be negative");
+      if (discount < 0) return showError("A discount can't be negative");
+
+      const answer = salePrice(price, discount);
+      if (answer.error) return showError(answer.error);
+
+      const saving = price - answer.salePrice;
+      result.className = "";
+      result.innerHTML =
+        '<div>Sale price</div><div class="price">$' + answer.salePrice.toFixed(2) + "</div>" +
+        "<div>You save $" + saving.toFixed(2) + "</div>";
+    }
+
+    priceBox.addEventListener("input", update);
+    discountBox.addEventListener("input", update);
+  </script>
+</body>
+</html>
