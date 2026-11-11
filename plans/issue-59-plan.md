@@ -34,10 +34,12 @@ code that makes it pass.
 ## What will change
 Three new files in `test-driven-development-example/diana/`:
 - `sale.js`: the calculation. It takes a price and a discount and gives back
-  either the sale price and the saving, or a message explaining what's wrong.
+  either the sale price or a message explaining what's wrong.
 - `sale.test.js`: the automated tests, one per rule, named in plain words.
 - `index.html`: the page, with a box for the price, a box for the discount,
-  and the result underneath. It uses `sale.js` for the math.
+  and a receipt showing the sale price and how much you save (the page works
+  out the saving from the sale price). It uses `sale.js` for the math, and its
+  look matches the calculator on the team's worked-example page.
 
 No other folders change.
 
