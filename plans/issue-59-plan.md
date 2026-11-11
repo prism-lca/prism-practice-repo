@@ -10,23 +10,23 @@ It is built test first: each rule gets a test that is seen failing before the
 code that makes it pass.
 
 ## Acceptance criteria
-- [ ] **Rule 1, the basic case.** Given a price of $50 and a discount of 20%,
+- [x] **Rule 1, the basic case.** Given a price of $50 and a discount of 20%,
       when the sale price is worked out, then it is $40.00.
-- [ ] **Rule 2, whole cents.** Given a price of $19.99 and a discount of 15%,
+- [x] **Rule 2, whole cents.** Given a price of $19.99 and a discount of 15%,
       when the sale price is worked out, then it is $16.99 (the raw math gives
       $16.9915, which rounds to the nearest cent).
-- [ ] **Rule 3, too big a discount.** Given a discount over 100% (for example
+- [x] **Rule 3, too big a discount.** Given a discount over 100% (for example
       120%), when the sale price is worked out, then there is no price and the
       message is "A discount can't be more than 100%".
-- [ ] **Rule 4, nothing for free.** Given a discount of exactly 100%, when the
+- [x] **Rule 4, nothing for free.** Given a discount of exactly 100%, when the
       sale price is worked out, then there is no price and the message is
       "A discount must be less than 100%". (Diana's decision: a store doesn't
       give items away through this calculator.)
-- [ ] Each rule above has an automated test, and each test was seen failing
+- [x] Each rule above has an automated test, and each test was seen failing
       before its code was written.
-- [ ] Given the page `index.html` is open in a browser, when you type a price
+- [x] Given the page `index.html` is open in a browser, when you type a price
       and a discount, then you see the sale price and how much you save.
-- [ ] Given a box is left empty, or the price or discount is negative, when
+- [x] Given a box is left empty, or the price or discount is negative, when
       you look at the page, then it shows a friendly message (for example
       "Please enter a price" or "A discount can't be negative") instead of a
       price. This is checked by hand on the page.
